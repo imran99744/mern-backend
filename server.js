@@ -4,6 +4,8 @@ import mongoose from "mongoose";
 import Messages from "./dbMessages.js";
 import Pusher from "pusher";
 import cors from "cors";
+import dotenv from "dotenv";
+dotenv.config();
 
 // app config
 const app = express();
@@ -22,10 +24,10 @@ app.use(express.json());
 app.use(cors());
 
 // db config
-const connection_url =
-  "mongodb+srv://whatsapp:whatsapp123@cluster0.tq4v3.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+// const connection_url =
+//   "mongodb+srv://whatsapp:whatsapp123@cluster0.tq4v3.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 
-mongoose.connect(connection_url, {
+mongoose.connect(process.env.connection_url, {
   //   useCreateIndex: true,
   useNewUrlParser: true,
   useUnifiedTopology: true,
